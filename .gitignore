@@ -4,7 +4,7 @@
 # Ignore Gradle build output directory
 build/classes
 build/generated
-build/report
+build/reports
 build/resources
 build/test-results
 build/tmp
