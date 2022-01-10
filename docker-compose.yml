@@ -6,9 +6,12 @@ services:
       dockerfile: Dockerfile
       context: ./
     ports: 
-      - "8084:80"
+      - "8084:8084"
+    links: db_postgresql
     depends_on:
       - db_postgresql
+
+  
       
   db_postgresql:
       image: postgres
