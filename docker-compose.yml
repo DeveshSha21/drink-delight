@@ -7,7 +7,8 @@ services:
       context: ./
     ports: 
       - "8084:8084"
-    links: db_postgresql
+    links:
+      - db_postgresql
     depends_on:
       - db_postgresql
 
