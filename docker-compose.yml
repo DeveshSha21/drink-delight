@@ -1,24 +1,18 @@
-version: '3.9'
+version: '3.1'
 services:
   app:
-    container_name: spring
-    build:
-      dockerfile: Dockerfile
-      context: ./
-    ports: 
+    container_name: app-springboot-postgresql
+    image: app-springboot-postgresql
+    build: ./
+    ports:
       - "8084:8084"
-    links:
-      - db_postgresql
     depends_on:
-      - db_postgresql
-
-  
-      
-  db_postgresql:
-      image: postgres
-      ports:
-       - "5432:5432"
-      environment:
-        - POSTGRES_PASSWORD=devansh21
-        - POSTGRES_USER=postgres
-        - POSTGRES_DB=postgres
+      - dbpostgresql
+  dbpostgresql:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=devansh21
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=mydb
